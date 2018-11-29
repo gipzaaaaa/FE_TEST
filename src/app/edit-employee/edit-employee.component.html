@@ -1,0 +1,15 @@
+<form #updateForm="ngForm" (ngSubmit)=updateEmployee(updateForm)>
+    <h4 class="text-center">
+        Update Employee</h4>
+    <div class="row">
+        <div class="column">
+            <input type="text" id="fName" name="fName" [(ngModel)]="fName" placeholder="First Name" required>
+        </div>
+        <div class="column">
+            <input type="text" id="lName" name="lName" [(ngModel)]="lName" placeholder="Last Name" required>
+        </div>
+        <div class="column">
+            <button type="text" class="btn btn-primary" type="submit">Update</button>
+        </div>
+    </div>
+</form>

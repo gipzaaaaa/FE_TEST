@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+    .body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+    }
+    
+    .compDiv {
+        margin-top: 10px;
+        align-content: center;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .loadingImage {
+        margin: 200px 400px;
+        align-content: center;
+    }

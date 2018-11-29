@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#"><img src='../assets/logo.png' class="logo" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register">Register New User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard">Dashbord</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" (click)="Logout ">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h3 class="text-center">Employee Portal</h3>
+<router-outlet></router-outlet>

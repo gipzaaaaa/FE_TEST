@@ -1,0 +1,39 @@
+<div class="container compDiv" *ngIf="!loading">
+    <div *ngIf="loading" class="loadingImage"><img src="https://media.giphy.com/media/52qtwCtj9OLTi/giphy.gif" /></div>
+    <span><i class=""></i> Search by first name: <input class="" type="text" [(ngModel)]='query'></span>
+    <div class="" *ngIf="(data | filter:query).length == 0">
+        <h3>Oh no</h3>
+        <p>No Employees found <span *ngIf="query"> with search "{{query}}"</span> </p>
+    </div>
+    <div class="pagination-data" *ngIf="(data | filter:query | filter:query).length != 0">
+
+        <table class="table table-bordered table-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Age</th>
+                <th>Avatar</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let d of data | filter:query | paginate: { id: 'server', itemsPerPage: 3, currentPage: _page }; let i = index">
+
+                <td>{{d.first_name}}</td>
+                <td>{{d.last_name}}</td>
+                <td><img style="width:60px;height:55px" src="{{d.avatar}}" /></td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary" (click)=loadUpdateForm(d.id) [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                  Update
+                </button>
+                </td>
+                <td> <button type="button" class="btn btn-outline-primary" (click)=deleteEmployee(d)>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <pagination-controls (pageChange)="getServerData($event)" maxSize="9" directionLinks="true" responsive="true" previousLabel="Previous" nextLabel="Next" id="server"></pagination-controls>
+    <hr>
+</div>
+
+<div id="collapseExample" [ngbCollapse]="isCollapsed" class="updateDiv">
+    <app-edit-employee (valueChange)='updateList($event)' [fName]="fName" [lName]="lName"></app-edit-employee>
+</div>

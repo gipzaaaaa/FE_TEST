@@ -1,0 +1,70 @@
+<div *ngIf="loading" class="loadingImage"><img src="https://media.giphy.com/media/52qtwCtj9OLTi/giphy.gif" /></div>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form class="form-horizontal formColor" #registerForm="ngForm" (ngSubmit)=register(registerForm) *ngIf="!loading">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h4>Register New User</h4>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="email">E-Mail Address</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input type="text" name="email" class="form-control" id="email" ngModel required>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input type="password" name="password" class="form-control" id="password" ngModel required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="password">Confirm Password</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <input type="password" name="password-confirmation" class="form-control" id="password-confirm" ngModel required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                </div>
+                <div class="col-md-6">
+                    <button [disabled]="!registerForm.valid" type="submit" class="btn btn-success btn-lg btn-block">Register</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                          {{error}}
+                 </span>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Loading Image-->

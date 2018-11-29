@@ -1,0 +1,36 @@
+<div *ngIf="loading" class="loadingImage"><img src="https://media.giphy.com/media/52qtwCtj9OLTi/giphy.gif" /></div>
+
+<div class="modal-dialog" *ngIf="!loading">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <h2 class="text-center">Login</h2>
+        </div>
+        <hr />
+
+        <div class="modal-body">
+            <form class="form-horizontal " #loginForm="ngForm" (ngSubmit)=OnSubmit(loginForm)>
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ngModel required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" ngModel>
+
+                    </div>
+
+                </div>
+                <div class="form-group text-center">
+                    <button [disabled]="!loginForm.valid" class="btn btn-success btn-lg ">Login</button>
+
+                </div>
+                <div *ngIf="isLoginError" class="text-danger align-middle">
+                    {{error}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
